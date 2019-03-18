@@ -9,6 +9,10 @@ z0  z1  ... zn
 """
 import math
 
+def make_clear(points):
+    for col_index in range(len(points)):
+	points[col_index] = [0, 0, 0, 0]
+
 def make_bezier():
     return [
         [-1, 3, -3, 1],

@@ -7,7 +7,22 @@ from matrix import *
   # height and depth dimensions.
   # ====================
 def add_box( points, x, y, z, width, height, depth ):
-    pass
+    x0, x1 = x, x + width
+    y0, y1 = y, y - height
+    z0, z1 = z, z - depth
+
+    add_edge(points, x0, y0, z0, x0, y1, z0)
+    add_edge(points, x0, y0, z0, x1, y0, z0)
+    add_edge(points, x0, y0, z0, x0, y0, z1)
+    add_edge(points, x1, y0, z0, x1, y1, z0)
+    add_edge(points, x1, y0, z0, x1, y0, z1)
+    add_edge(points, x0, y1, z0, x1, y1, z0)
+    add_edge(points, x0, y0, z1, x1, y0, z1)
+    add_edge(points, x0, y1, z1, x1, y1, z1)
+    add_edge(points, x0, y1, z0, x0, y1, z1)
+    add_edge(points, x1, y1, z0, x1, y1, z1)
+    add_edge(points, x0, y0, z1, x0, y1, z1)
+    add_edge(points, x1, y0, z1, x1, y1, z1)
 
   # ====================
   # Generates all the points along the surface
